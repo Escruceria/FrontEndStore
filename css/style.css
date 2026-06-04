@@ -283,6 +283,13 @@ h3 {
         margin-top: 0;
     }
 }
+.camisa__precio {
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+    font-size: 4rem;
+    line-height: 1;
+    margin: 0 0 2rem 0;
+}
 
 .formulario {
     /** Mantiene alineados talla, cantidad y botón en una grilla sencilla. */

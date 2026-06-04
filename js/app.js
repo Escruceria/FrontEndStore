@@ -2,72 +2,72 @@ const CLAVE_CARRITO = 'frontendStoreCarrito';
 const PRODUCTOS = {
     vuejs: {
         nombre: 'VueJS',
-        precio: 25,
+        precio: 24,
         imagen: 'img/1.jpg'
     },
     angularjs: {
         nombre: 'AngularJS',
-        precio: 25,
+        precio: 28,
         imagen: 'img/2.jpg'
     },
     reactjs: {
         nombre: 'ReactJS',
-        precio: 25,
+        precio: 30,
         imagen: 'img/3.jpg'
     },
     redux: {
         nombre: 'Redux',
-        precio: 25,
+        precio: 26,
         imagen: 'img/4.jpg'
     },
     nodejs: {
         nombre: 'Node.js',
-        precio: 25,
+        precio: 32,
         imagen: 'img/5.jpg'
     },
     sass: {
         nombre: 'SASS',
-        precio: 25,
+        precio: 23,
         imagen: 'img/6.jpg'
     },
     html5: {
         nombre: 'HTML5',
-        precio: 25,
+        precio: 22,
         imagen: 'img/7.jpg'
     },
     github: {
         nombre: 'GitHub',
-        precio: 25,
+        precio: 27,
         imagen: 'img/8.jpg'
     },
     bulmacss: {
         nombre: 'BulmaCSS',
-        precio: 25,
+        precio: 24,
         imagen: 'img/9.jpg'
     },
     typescript: {
         nombre: 'TypeScript',
-        precio: 25,
+        precio: 31,
         imagen: 'img/10.jpg'
     },
     drupal: {
         nombre: 'Drupal',
-        precio: 25,
+        precio: 29,
         imagen: 'img/11.jpg'
     },
     javascript: {
         nombre: 'JavaScript',
-        precio: 25,
+        precio: 30,
         imagen: 'img/12.jpg'
     },
     graphql: {
         nombre: 'GraphQL',
-        precio: 25,
+        precio: 34,
         imagen: 'img/13.jpg'
     },
     wordpress: {
         nombre: 'WordPress',
-        precio: 25,
+        precio: 28,
         imagen: 'img/14.jpg'
     }
 };
@@ -94,6 +94,7 @@ function cargarDetalleProducto() {
     document.querySelector('#producto-imagen').src = producto.imagen;
     document.querySelector('#producto-imagen').alt = `Camiseta de ${producto.nombre}`;
     document.querySelector('#producto-descripcion').textContent = crearDescripcion(producto.nombre);
+    document.querySelector('#producto-precio').textContent = formatearPrecio(producto.precio);
     document.title = `${producto.nombre} - FrontEnd Store`;
 
     formulario.dataset.nombre = producto.nombre;
