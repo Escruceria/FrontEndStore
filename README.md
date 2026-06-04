@@ -11,11 +11,13 @@ El proyecto está construido con HTML y CSS puro. Mantiene una estructura sencil
 - `index.html`: catálogo principal de productos.
 - `nosotros.html`: presentación de la tienda y beneficios de compra.
 - `producto.html`: detalle de una camiseta y formulario de compra.
+- `carrito.html`: resumen del producto agregado al carrito.
 
 ## Tecnologías utilizadas
 
 - HTML5
 - CSS3
+- JavaScript
 - Normalize.css
 - Google Fonts
 
@@ -29,7 +31,10 @@ FrontEndStore/
 ├── img/
 │   ├── productos e imágenes del sitio
 │   └── iconos de beneficios
+├── js/
+│   └── app.js
 ├── index.html
+├── carrito.html
 ├── nosotros.html
 ├── producto.html
 └── README.md
@@ -46,4 +51,5 @@ Abre `index.html` directamente en el navegador o ejecútalo desde un servidor lo
 - Mejora de accesibilidad en imágenes y formulario.
 - Ajustes visuales en tarjetas, navegación, bloques informativos y página de producto.
 - Corrección del ícono de mejor precio.
+- Carrito de compras con almacenamiento en `localStorage`.
 - Comentarios en el código para facilitar el mantenimiento.

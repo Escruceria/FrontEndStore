@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carrito de compras de FrontEnd Store.">
+    <title>Carrito - FrontEnd Store</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Encabezado principal con enlace de regreso a la tienda. -->
+    <header class="header">
+        <a href="index.html">
+            <img class="header__logo" src="img/logo.png" alt="Logotipo de FrontEnd Store">
+        </a>
+    </header>
+
+    <!-- Navegación principal del sitio. -->
+    <nav class="navegacion">
+        <a class="navegacion__enlace" href="index.html">Tienda</a>
+        <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+        <a class="navegacion__enlace navegacion__enlace--activo" href="carrito.html">Carrito</a>
+    </nav>
+
+    <main class="contenedor">
+        <h1>Carrito de Compras</h1>
+
+        <!-- Contenedor dinámico: JavaScript muestra el producto seleccionado o el estado vacío. -->
+        <section class="carrito" aria-live="polite">
+            <div class="carrito__vacio" id="carrito-vacio">
+                <h2>Tu carrito está vacío</h2>
+                <p>Selecciona una camiseta, elige la talla y agrega la cantidad que deseas comprar.</p>
+                <a class="carrito__enlace" href="index.html">Volver a la tienda</a>
+            </div>
+
+            <article class="carrito__producto" id="carrito-producto" hidden>
+                <img class="carrito__imagen" id="carrito-imagen" src="img/3.jpg" alt="Camiseta seleccionada">
+
+                <div class="carrito__detalle">
+                    <h2 class="carrito__nombre" id="carrito-nombre">Producto</h2>
+                    <p>Talla: <span id="carrito-talla"></span></p>
+                    <p>Cantidad: <span id="carrito-cantidad"></span></p>
+                    <p>Precio unitario: <span id="carrito-precio"></span></p>
+                </div>
+
+                <div class="carrito__resumen">
+                    <h3>Total</h3>
+                    <p class="carrito__total" id="carrito-total"></p>
+                    <button class="carrito__boton" id="vaciar-carrito" type="button">Vaciar carrito</button>
+                    <a class="carrito__enlace" href="index.html">Seguir comprando</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Pie de página común en todas las vistas. -->
+    <footer class="footer">
+        <p class="footer__texto">Front End Store - Todos los derechos reservados 2026.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

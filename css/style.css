@@ -319,3 +319,90 @@ h3 {
     cursor: pointer;
     background-color: var(--secundarioOscuro);
 }
+
+/** Carrito **/
+.carrito {
+    /** Agrupa el estado vacío y el resumen de compra con el mismo lenguaje visual del sitio. */
+    background-color: rgba(137, 17, 157, .55);
+    border: .1rem solid var(--bordeSuave);
+    border-radius: .8rem;
+    box-shadow: 0 1rem 2.5rem var(--sombra);
+    padding: 2rem;
+}
+.carrito__vacio {
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+}
+.carrito__vacio h2 {
+    margin-top: 0;
+}
+.carrito__producto {
+    display: grid;
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .carrito__producto {
+        grid-template-columns: 22rem 1fr 24rem;
+        align-items: center;
+    }
+}
+.carrito__imagen {
+    border-radius: .8rem;
+    box-shadow: 0 1rem 2.5rem var(--sombra);
+}
+.carrito__detalle,
+.carrito__resumen {
+    background-color: rgba(137, 17, 157, .45);
+    border: .1rem solid var(--bordeSuave);
+    border-radius: .8rem;
+    padding: 2rem;
+}
+.carrito__nombre {
+    margin-top: 0;
+    text-align: left;
+}
+.carrito__resumen {
+    text-align: center;
+}
+.carrito__resumen h3 {
+    margin-top: 0;
+}
+.carrito__total {
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+    font-size: 4rem;
+    margin: 1rem 0;
+}
+.carrito__boton,
+.carrito__enlace {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: .4rem;
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    line-height: 1;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.carrito__boton {
+    background-color: var(--secundario);
+    color: var(--negro);
+    transition: background-color .3s ease;
+}
+.carrito__boton:hover {
+    background-color: var(--secundarioOscuro);
+    cursor: pointer;
+}
+.carrito__enlace {
+    background-color: var(--primarioOscuro);
+    color: var(--blanco);
+    transition: color .3s ease, background-color .3s ease;
+}
+.carrito__enlace:hover {
+    background-color: var(--secundario);
+    color: var(--negro);
+}

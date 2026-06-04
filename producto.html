@@ -21,6 +21,7 @@
     <nav class="navegacion">
         <a class="navegacion__enlace navegacion__enlace--activo" href="index.html">Tienda</a>
         <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+        <a class="navegacion__enlace" href="carrito.html">Carrito</a>
     </nav>
 
     <main class="contenedor">
@@ -33,12 +34,12 @@
             <div class="camisa__contenido">
                 <p>Camiseta de ReactJS con diseño moderno, tela cómoda y estampado resistente. Ideal para quienes disfrutan crear interfaces dinámicas y llevar su tecnología favorita a todas partes.</p>
 
-                <form class="formulario" action="#" method="post">
+                <form class="formulario" id="formulario-carrito" action="#" method="post" data-nombre="ReactJS" data-precio="25" data-imagen="img/3.jpg">
                     <select class="formulario__campo" name="talla" aria-label="Seleccionar talla" required>
                         <option value="" disabled selected>-- Seleccionar talla --</option>
-                        <option>Chica</option>
-                        <option>Mediana</option>
-                        <option>Grande</option>
+                        <option value="Chica">Chica</option>
+                        <option value="Mediana">Mediana</option>
+                        <option value="Grande">Grande</option>
                     </select>
                     <input class="formulario__campo" type="number" name="cantidad" placeholder="Cantidad" min="1" aria-label="Cantidad" required>
                     <input class="formulario__submit" type="submit" value="Agregar al carrito">
@@ -51,6 +52,8 @@
     <footer class="footer">
         <p class="footer__texto">Front End Store - Todos los derechos reservados 2026.</p>
     </footer>
+
+    <script src="js/app.js"></script>
     
 </body>
 </html>
