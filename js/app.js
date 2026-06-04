@@ -93,8 +93,19 @@ function configurarBotonVaciar() {
 
     botonVaciar.addEventListener('click', () => {
         localStorage.removeItem(CLAVE_CARRITO);
-        window.location.href = 'carrito.html';
+        limpiarProductoPintado();
+        document.querySelector('#carrito-producto').hidden = true;
+        document.querySelector('#carrito-vacio').hidden = false;
     });
+}
+
+function limpiarProductoPintado() {
+    /** Limpia los textos para que no queden datos antiguos si el usuario vacía el carrito. */
+    document.querySelector('#carrito-nombre').textContent = '';
+    document.querySelector('#carrito-talla').textContent = '';
+    document.querySelector('#carrito-cantidad').textContent = '';
+    document.querySelector('#carrito-precio').textContent = '';
+    document.querySelector('#carrito-total').textContent = '';
 }
 
 function formatearPrecio(valor) {
