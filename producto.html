@@ -25,14 +25,14 @@
     </nav>
 
     <main class="contenedor">
-        <h1>ReactJS</h1>
+        <h1 id="producto-nombre">ReactJS</h1>
 
         <!-- Detalle del producto seleccionado y formulario de compra. -->
         <div class="camisa">
-            <img class="camisa__imagen" src="img/3.jpg" alt="Camiseta de ReactJS">
+            <img class="camisa__imagen" id="producto-imagen" src="img/3.jpg" alt="Camiseta de ReactJS">
 
             <div class="camisa__contenido">
-                <p>Camiseta de ReactJS con diseño moderno, tela cómoda y estampado resistente. Ideal para quienes disfrutan crear interfaces dinámicas y llevar su tecnología favorita a todas partes.</p>
+                <p id="producto-descripcion">Camiseta de ReactJS con diseño moderno, tela cómoda y estampado resistente. Ideal para quienes disfrutan crear interfaces dinámicas y llevar su tecnología favorita a todas partes.</p>
 
                 <form class="formulario" id="formulario-carrito" action="#" method="post" data-nombre="ReactJS" data-precio="25" data-imagen="img/3.jpg">
                     <select class="formulario__campo" name="talla" aria-label="Seleccionar talla" required>

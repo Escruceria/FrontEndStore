@@ -1,9 +1,105 @@
 const CLAVE_CARRITO = 'frontendStoreCarrito';
+const PRODUCTOS = {
+    vuejs: {
+        nombre: 'VueJS',
+        precio: 25,
+        imagen: 'img/1.jpg'
+    },
+    angularjs: {
+        nombre: 'AngularJS',
+        precio: 25,
+        imagen: 'img/2.jpg'
+    },
+    reactjs: {
+        nombre: 'ReactJS',
+        precio: 25,
+        imagen: 'img/3.jpg'
+    },
+    redux: {
+        nombre: 'Redux',
+        precio: 25,
+        imagen: 'img/4.jpg'
+    },
+    nodejs: {
+        nombre: 'Node.js',
+        precio: 25,
+        imagen: 'img/5.jpg'
+    },
+    sass: {
+        nombre: 'SASS',
+        precio: 25,
+        imagen: 'img/6.jpg'
+    },
+    html5: {
+        nombre: 'HTML5',
+        precio: 25,
+        imagen: 'img/7.jpg'
+    },
+    github: {
+        nombre: 'GitHub',
+        precio: 25,
+        imagen: 'img/8.jpg'
+    },
+    bulmacss: {
+        nombre: 'BulmaCSS',
+        precio: 25,
+        imagen: 'img/9.jpg'
+    },
+    typescript: {
+        nombre: 'TypeScript',
+        precio: 25,
+        imagen: 'img/10.jpg'
+    },
+    drupal: {
+        nombre: 'Drupal',
+        precio: 25,
+        imagen: 'img/11.jpg'
+    },
+    javascript: {
+        nombre: 'JavaScript',
+        precio: 25,
+        imagen: 'img/12.jpg'
+    },
+    graphql: {
+        nombre: 'GraphQL',
+        precio: 25,
+        imagen: 'img/13.jpg'
+    },
+    wordpress: {
+        nombre: 'WordPress',
+        precio: 25,
+        imagen: 'img/14.jpg'
+    }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
+    cargarDetalleProducto();
     inicializarFormularioProducto();
     mostrarCarrito();
 });
+
+function cargarDetalleProducto() {
+    const formulario = document.querySelector('#formulario-carrito');
+
+    /** Si no estamos en la página de producto, no hace falta buscar parámetros. */
+    if (!formulario) {
+        return;
+    }
+
+    const parametros = new URLSearchParams(window.location.search);
+    const idProducto = parametros.get('id') || 'reactjs';
+    const producto = PRODUCTOS[idProducto] || PRODUCTOS.reactjs;
+
+    document.querySelector('#producto-nombre').textContent = producto.nombre;
+    document.querySelector('#producto-imagen').src = producto.imagen;
+    document.querySelector('#producto-imagen').alt = `Camiseta de ${producto.nombre}`;
+    document.querySelector('#producto-descripcion').textContent = crearDescripcion(producto.nombre);
+    document.title = `${producto.nombre} - FrontEnd Store`;
+
+    formulario.dataset.nombre = producto.nombre;
+    formulario.dataset.precio = producto.precio;
+    formulario.dataset.imagen = producto.imagen;
+}
 
 function inicializarFormularioProducto() {
     const formulario = document.querySelector('#formulario-carrito');
@@ -110,4 +206,8 @@ function limpiarProductoPintado() {
 
 function formatearPrecio(valor) {
     return `$${valor}`;
+}
+
+function crearDescripcion(nombre) {
+    return `Camiseta de ${nombre} con diseño moderno, tela cómoda y estampado resistente. Ideal para quienes disfrutan crear interfaces, aprender nuevas tecnologías y vestir su stack favorito.`;
 }
