@@ -6,6 +6,8 @@
     --secundarioOscuro: rgb(233, 187, 2);
     --blanco: #FFF;
     --negro: #000;
+    --sombra: rgba(0, 0, 0, .22);
+    --bordeSuave: rgba(255, 255, 255, .12);
 
     --fuentePrincipal: 'Staatliches', cursive;
 }
@@ -23,9 +25,10 @@ html {
 
 /** Globales **/
 body {
-    background-color: var(--primario);
+    background: linear-gradient(180deg, var(--primario) 0%, #7B1FA2 100%);
     font-size: 1.6rem;
     line-height: 1.5;
+    min-height: 100vh;
 }
 p {
     font-size: 1.8rem;
@@ -36,11 +39,13 @@ a {
     text-decoration: none;
 }
 img {
+    display: block;
     width: 100%;
 }
 .contenedor {
     max-width: 120rem;
     margin: 0 auto;
+    padding: 0 1.5rem;
 }
 h1, h2, h3 {
     text-align: center;
@@ -49,6 +54,7 @@ h1, h2, h3 {
 }
 h1 {
     font-size: 4rem;
+    margin: 3rem 0;
 }
 h2 {
     font-size: 3.2rem;
@@ -62,15 +68,18 @@ h3 {
     /** Centra el logotipo sin depender del ancho de la imagen. */
     display: flex;
     justify-content: center;
+    padding: 1rem 0;
 }
 .header__logo {
-    margin: 3rem 0;
+    margin: 2rem 0;
+    width: min(100%, 28rem);
 }
 /** Footer **/
 .footer {
     background-color: var(--primarioOscuro);
     padding: 1rem 0;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    box-shadow: 0 -1rem 3rem var(--sombra);
 }
 .footer__texto {
     font-family: var(--fuentePrincipal);
@@ -81,18 +90,24 @@ h3 {
 .navegacion {
     /** Barra horizontal centrada para las secciones principales. */
     background-color: var(--primarioOscuro);
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     display: flex;
     justify-content: center;
     gap: 2rem; 
+    box-shadow: 0 .8rem 2rem var(--sombra);
 }
 .navegacion__enlace {
+    border-bottom: .3rem solid transparent;
     font-family: var(--fuentePrincipal);
     color: var(--blanco);
     font-size: 3rem;
+    line-height: 1;
+    padding-bottom: .4rem;
+    transition: color .3s ease, border-color .3s ease;
 }
 .navegacion__enlace--activo,
 .navegacion__enlace:hover {
+    border-color: var(--secundario);
     color: var(--secundario);
 }
 
@@ -114,6 +129,20 @@ h3 {
 .producto {
     background-color: var(--primarioOscuro);
     padding: 1rem;
+    border: .1rem solid var(--bordeSuave);
+    border-radius: .8rem;
+    box-shadow: 0 1rem 2.5rem var(--sombra);
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.producto:hover {
+    box-shadow: 0 1.5rem 3rem var(--sombra);
+    transform: translateY(-.4rem);
+}
+.producto__imagen {
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: .4rem;
 }
 
 .producto__nombre {
@@ -137,6 +166,9 @@ h3 {
     min-height: 30rem;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    border-radius: .8rem;
+    box-shadow: 0 1rem 2.5rem var(--sombra);
     grid-column: 1 / 3;
 }
 .grafico--camisas {
@@ -161,6 +193,13 @@ h3 {
     /** En móvil el texto y la imagen se apilan en dos filas. */
     display: grid;
     grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+}
+.nosotros__contenido {
+    background-color: rgba(137, 17, 157, .55);
+    border: .1rem solid var(--bordeSuave);
+    border-radius: .8rem;
+    padding: 2rem;
 }
 @media (min-width: 768px) {
     .nosotros {
@@ -170,6 +209,8 @@ h3 {
     }
 }
 .nosotros__imagen {
+    border-radius: .8rem;
+    box-shadow: 0 1rem 2.5rem var(--sombra);
     grid-row: 1 / 2;
 }
 @media (min-width: 768px) {
@@ -193,7 +234,20 @@ h3 {
 }
 
 .bloque {
+    background-color: rgba(137, 17, 157, .45);
+    border: .1rem solid var(--bordeSuave);
+    border-radius: .8rem;
+    padding: 2rem 1.5rem;
     text-align: center;
+    transition: transform .3s ease, background-color .3s ease;
+}
+.bloque:hover {
+    background-color: rgba(137, 17, 157, .7);
+    transform: translateY(-.3rem);
+}
+.bloque__imagen {
+    max-width: 16rem;
+    margin: 0 auto 1rem auto;
 }
 
 .bloque__titulo {
@@ -207,6 +261,23 @@ h3 {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 2rem;
+        align-items: start;
+    }
+}
+.camisa__imagen {
+    border-radius: .8rem;
+    box-shadow: 0 1rem 2.5rem var(--sombra);
+}
+.camisa__contenido {
+    background-color: rgba(137, 17, 157, .55);
+    border: .1rem solid var(--bordeSuave);
+    border-radius: .8rem;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+@media (min-width: 768px) {
+    .camisa__contenido {
+        margin-top: 0;
     }
 }
 
@@ -224,6 +295,15 @@ h3 {
    font-family: Arial, Helvetica, sans-serif;
    padding: 1rem;
    appearance: none;
+   outline: none;
+   transition: border-color .3s ease, background-color .3s ease;
+}
+.formulario__campo:focus {
+   background-color: rgba(255, 255, 255, .08);
+   border-color: var(--secundario);
+}
+.formulario__campo option {
+   color: var(--negro);
 }
 .formulario__submit {
     background-color: var(--secundario);
@@ -233,6 +313,7 @@ h3 {
     padding: 2rem;
     transition: background-color .3s ease;
     grid-column: 1 / 3;
+    text-transform: uppercase;
 }
 .formulario__submit:hover {
     cursor: pointer;
